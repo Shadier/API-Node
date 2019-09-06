@@ -51,10 +51,10 @@ exports.clientRouter.post('/', (req, res) => {
         res.status(400).send({ message: 'Send all data please' });
     }
 });
-exports.clientRouter.post('/:id', (req, res) => {
+exports.clientRouter.patch('/:id', (req, res) => {
     const clientId = req.params.id;
     const params = req.body;
-    Client.findByIdAndUpdate(clientId, params, (err, clientUpdated) => {
+    Client.update({ _id: clientId }, { $set: params }, (err, clientUpdated) => {
         if (err)
             return res.status(500).send({ message: 'Internal Server error, Client doesn´t updated' });
         if (clientUpdated)

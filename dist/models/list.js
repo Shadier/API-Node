@@ -12,5 +12,5 @@ const ListSchema = Schema({
     subtotal: Number,
     purchaseId: String,
 });
-module.exports = mongoose_1.default.model('Listf', ListSchema);
+module.exports = mongoose_1.default.model('List', ListSchema);
 //# sourceMappingURL=list.js.map

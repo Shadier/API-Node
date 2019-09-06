@@ -11,4 +11,4 @@ const ListSchema = Schema({
  	purchaseId: String,
 });
 
-module.exports = mongoose.model('Listf', ListSchema);
+module.exports = mongoose.model('List', ListSchema);

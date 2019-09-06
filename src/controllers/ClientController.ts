@@ -48,11 +48,11 @@ clientRouter.post('/', (req, res) => {
 })
 
 
-clientRouter.post('/:id', (req, res) => {
+clientRouter.patch('/:id', (req, res) => {
 	const clientId = req.params.id;
 	const params = req.body;
 
-	Client.findByIdAndUpdate(clientId, params, (err, clientUpdated) => {
+	Client.update({_id  : clientId}, {$set: params}, (err, clientUpdated) => {
 		if(err) return res.status(500).send({message: 'Internal Server error, Client doesn´t updated'})
 		if(clientUpdated) res.status(200).send({messafe: 'Client updated successfully!'})
 		else res.status(404).send({message: 'Client not updated!'})
